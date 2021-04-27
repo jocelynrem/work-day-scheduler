@@ -4,21 +4,20 @@
   var hour =  moment().format('H')
   var timeBlock = $(".time-block");
   var saveBtn = $(".saveBtn")
-  var event = $("description").innerText
-  
-
-
-
-console.log(saveBtn.prev().text());
-
-
 
 saveBtn.click(function() {
-  // description = $(this).prev().text()
-  console.log($(this).prev().text().val())
-  // localStorage.setItem('Decription:', description);
+  plan = ($(this).prev()).val()
+  blockNum = $(this).parent().attr('id');
+  localStorage.setItem(blockNum, plan);
 })
 
+/* get  key from local storage
+use that key to apend the value to the correct text block
+fill the block upon some event... refresh? load?*/
+
+function fillEvent(){
+  
+}
 
   function timeTracker(){
     timeBlock.each(function(){
