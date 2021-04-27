@@ -5,15 +5,19 @@
   var timeBlock = $(".time-block");
   var saveBtn = $(".saveBtn")
   var event = $("description").innerText
+  
 
-console.log('$("description").text():', $(".description").text())
 
 
 console.log(saveBtn.prev().text());
 
-// saveBtn.click(function() {
-//   $(this).prev().text()
-// })
+
+
+saveBtn.click(function() {
+  // description = $(this).prev().text()
+  console.log($(this).prev().text().val())
+  // localStorage.setItem('Decription:', description);
+})
 
 
   function timeTracker(){
