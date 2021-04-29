@@ -5,18 +5,30 @@
   var timeBlock = $(".time-block");
   var saveBtn = $(".saveBtn")
 
+
+
 saveBtn.click(function() {
   plan = ($(this).prev()).val()
   blockNum = $(this).parent().attr('id');
   localStorage.setItem(blockNum, plan);
+  for(var i =0; i < localStorage.length; i++){
+    console.log(localStorage.getItem(localStorage.key(i)));
+  }
 })
 
 /* get  key from local storage
 use that key to apend the value to the correct text block
 fill the block upon some event... refresh? load?*/
 
+var savedPlan = localStorage.getItem('key');
+plan = savedPlan;
+console.log('plan:', plan)
+
+
+
+
 function fillEvent(){
-  
+  ready()
 }
 
   function timeTracker(){
