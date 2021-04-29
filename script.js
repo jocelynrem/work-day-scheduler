@@ -1,44 +1,34 @@
+var currentDay = moment().format("dddd, MMMM DD, YYYY  h:mm a");
+$("#currentDay").text(currentDay);
+var hour = moment().format("H");
+var timeBlock = $(".time-block");
 
-  var currentDay = moment().format('dddd, MMMM DD, YYYY  h:mm a')
-  $('#currentDay').text(currentDay)
-  var hour =  moment().format('H')
-  var timeBlock = $(".time-block");
-  var saveBtn = $(".saveBtn");
-  
-  saveBtn.click(function() {
-    plan = ($(this).prev()).val()
-    blockNum = $(this).parent().attr('id');
-    localStorage.setItem(blockNum, plan);
-  })
-  
-  /* get  key from local storage
-  use that key to apend the value to the correct text block
-  fill the block when document is ready*/
+var saveBtn = $(".saveBtn");
+    
+saveBtn.click(function () {
+  plan = $(this).prev().val();
+  blockNum = $(this).prev().attr("id");
+  localStorage.setItem(blockNum, plan);
+});
 
-  $(document).ready(function() {
+$(document).ready(function () {
+  for (var i = 9; i < 18; i++) {
+   var savedPlan = document.getElementById(i)
+    $(savedPlan).text(localStorage.getItem(i));
+    console.log('savedPlan:', savedPlan)
+    
+  }
+});
 
-  })
-  // for(var i =0; i < localStorage.length; i++){
-  //   console.log(localStorage.getItem(localStorage.key(i)));
-  // }
-  
-  // $(this).timeBlock.innerHTML = localStorage.getItem('key')
-  //  var savedPlan = localStorage.getItem('key');
-  //  plan = savedPlan;
-  //  console.log('plan:', plan)
-  
-
-
-
-function fillEvent(){
-  ready()
+function fillEvent() {
+  ready();
 }
 
-  function timeTracker(){
-    timeBlock.each(function(){
+function timeTracker() {
+  timeBlock.each(function () {
     var thisBlock = $(this);
     var thisBlockHr = parseInt(thisBlock.attr("data-hr"));
-  
+
     if (thisBlockHr === hour) {
       thisBlock.addClass("present").removeClass("past future");
     }
@@ -49,5 +39,5 @@ function fillEvent(){
       thisBlock.addClass("future").removeClass("past present");
     }
   });
-  }
-  timeTracker();
+}
+timeTracker();
