@@ -1,8 +1,7 @@
 var currentDay = moment().format("dddd, MMMM DD, YYYY  h:mm a");
 $("#currentDay").text(currentDay);
-var hour = moment().format("H");
+var hour = parseInt(moment().format('H'));
 var timeBlock = $(".time-block");
-
 var saveBtn = $(".saveBtn");
     
 saveBtn.click(function () {
@@ -16,13 +15,8 @@ $(document).ready(function () {
    var savedPlan = document.getElementById(i)
     $(savedPlan).text(localStorage.getItem(i));
     console.log('savedPlan:', savedPlan)
-    
   }
 });
-
-function fillEvent() {
-  ready();
-}
 
 function timeTracker() {
   timeBlock.each(function() {
