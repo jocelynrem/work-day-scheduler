@@ -25,7 +25,7 @@ function fillEvent() {
 }
 
 function timeTracker() {
-  timeBlock.each(function () {
+  timeBlock.each(function() {
     var thisBlock = $(this);
     var thisBlockHr = parseInt(thisBlock.attr("data-hr"));
 
